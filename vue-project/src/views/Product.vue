@@ -1,23 +1,25 @@
 <template>
   <Navbar />
   <section id="product-section">
-    <div class="carousel">
-      <div class="slider-wrapper">
-        <img
-          src="https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <img
-          src="https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <img
-          src="https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <img
-          src="https://images.pexels.com/photos/3965539/pexels-photo-3965539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
-        <img
-          src="https://images.pexels.com/photos/6311687/pexels-photo-6311687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        />
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="slider-wrapper">
+          <img
+            src="https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          />
+          <img
+            src="https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          />
+          <img
+            src="https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          />
+          <img
+            src="https://images.pexels.com/photos/3965539/pexels-photo-3965539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          />
+          <img
+            src="https://images.pexels.com/photos/6311687/pexels-photo-6311687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          />
+        </div>
       </div>
     </div>
 
@@ -35,7 +37,7 @@
     <div class="product-content">
       <h1>Our Products</h1>
       <div class="card-container">
-        <Card v-for="product in products" :key="product.id" :product="product" target-scroll />
+        <Card v-for="product in products" :key="product.id" :product="product" />
       </div>
     </div>
   </section>

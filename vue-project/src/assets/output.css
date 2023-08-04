@@ -529,7 +529,7 @@
     gap: 10px;
   }
   .home-category-wrap {
-    padding: 0 10px;
+    padding: 0 20px;
   }
   .carousel .discover-more {
     font-size: 0.7rem;
@@ -537,7 +537,7 @@
   }
   #new-arrival,
   #best-seller {
-    padding: 50px 10px;
+    padding: 50px 20px;
   }
 }
 .card-container {
@@ -702,6 +702,9 @@
 }
 
 @media (max-width: 550px) {
+  .product-content {
+    padding: 0 20px;
+  }
   .sort-filter-container {
     justify-content: center;
     gap: 10px;

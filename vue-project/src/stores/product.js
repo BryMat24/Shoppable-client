@@ -2,9 +2,10 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-export const useProductStore = defineStore('counter', {
+export const useProductStore = defineStore('product', {
     state: () => {
         return {
+            categories: [],
             products: [],
             page: 1,
             categoryId: '',
@@ -33,7 +34,7 @@ export const useProductStore = defineStore('counter', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: "https://bryaniproject.productapic1.com/products",
+                    url: "http://localhost:3000/products",
                     params: {
                         search: this.searchInput,
                         categoryId: this.categoryId,

@@ -61,6 +61,10 @@
 }
 
 @media (max-width: 550px) {
+  .product-content {
+    padding: 0 20px;
+  }
+
   .sort-filter-container {
     justify-content: center;
     gap: 10px;

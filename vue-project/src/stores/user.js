@@ -2,12 +2,12 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-export const useUserStore = defineStore('counter', {
+export const useUserStore = defineStore('user', {
   state: () => {
     return {
       email: '',
       password: '',
-      isLoggedIn: Boolean(localStorage.getItem('access_token'))
+      isLoggedIn: Boolean(localStorage.getItem('access_token')),
     }
   },
   actions: {
@@ -58,6 +58,6 @@ export const useUserStore = defineStore('counter', {
           icon: 'error',
         })
       }
-    },
+    }
   },
 })
