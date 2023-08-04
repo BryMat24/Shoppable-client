@@ -55,15 +55,16 @@ export const useCartStore = defineStore('cart', {
                 })
             }
         },
-        async addProductToCart(id) {
+        async addProductToCart(value) {
             try {
-                console.log(id);
+                const { id, quantity } = value;
                 await axios({
                     method: 'post',
                     url: `http://localhost:3000/carts/${id}`,
                     headers: {
                         access_token: localStorage.getItem('access_token')
-                    }
+                    },
+                    data: { quantity }
                 })
 
                 Swal.fire({
@@ -73,7 +74,6 @@ export const useCartStore = defineStore('cart', {
 
                 this.getProductInCart();
             } catch (err) {
-                console.log(err)
                 Swal.fire({
                     title: 'Error!',
                     text: `${err.response.data.message}`,
