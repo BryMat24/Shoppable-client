@@ -1,0 +1,28 @@
+@import 'global';
+
+#footer {
+  margin: 100px 50px 0 50px;
+  padding: 80px 0px;
+  display: flex;
+  gap: 20px;
+  border-top: 2px solid $dark-green;
+}
+
+#footer div {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px 50px;
+  margin: 0 10px;
+  gap: 5px;
+}
+
+.about-us h1,
+.contact h1 {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+}
+
+.footer-info {
+  list-style: none;
+}

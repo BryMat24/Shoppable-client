@@ -1,0 +1,30 @@
+@use 'navbar';
+@use 'home';
+@use 'products';
+@use 'product-detail';
+@use 'footer';
+@use 'shopping-cart';
+@use 'login';
+@use 'order';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: white;
+  overflow-x: hidden;
+}
+
+.category {
+  margin-left: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.new {
+  margin-left: 20px;
+}

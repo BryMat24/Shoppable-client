@@ -1,0 +1,118 @@
+@import 'global';
+
+.sort-filter-container {
+  display: flex;
+  justify-content: end;
+  margin: 100px 80px 30px 80px;
+  gap: 20px;
+}
+
+.dropdown {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 3px solid $light-gray;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .material-symbols-outlined {
+    font-size: 1.2rem !important;
+    cursor: pointer;
+    transition: transform 150ms ease-in-out;
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition:
+    opacity 150ms ease-in-out,
+    transform 150ms ease-in-out;
+}
+
+.dropdown.active > .material-symbols-outlined + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown.active > .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+.product-content {
+  padding: 0 80px;
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .sort-filter-container {
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.5rem;
+  }
+
+  product-content {
+    padding: 0 50px;
+  }
+}
+
+.changePageAction {
+  margin-top: 100px;
+}
+
+.changePageAction {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-bottom: 30px;
+  gap: 30px;
+  margin-right: 50px;
+}
+
+.changePageAction button {
+  border: none;
+  outline: none;
+  color: black;
+  border-radius: 25px;
+  width: 80px;
+  height: 30px;
+}
+
+.next-button {
+  width: 80px;
+}
+
+.filter-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0px 5px;
+  background-color: $light-gray;
+  font-weight: 700;
+}
+
+.category-name {
+  flex: 1;
+  font-size: 3rem;
+}
+
+.closeFilter {
+  cursor: pointer;
+}
