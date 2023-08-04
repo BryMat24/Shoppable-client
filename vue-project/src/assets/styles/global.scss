@@ -13,6 +13,8 @@ $animation-timing: 200ms ease-in-out;
   transform: translateY(20%);
   transition: transform 0.5s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .add-wishlist-button {
@@ -102,20 +104,8 @@ $animation-timing: 200ms ease-in-out;
   }
 }
 
-/* .card-container-product {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-
-.card-products {
-  display: flex;
-  flex-direction: column;
-}
-
 .product-card-info {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
- */

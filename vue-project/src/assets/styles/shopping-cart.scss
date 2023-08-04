@@ -12,8 +12,8 @@
   padding: 20px 0;
   display: flex;
   flex-direction: column;
-  //transform: translateX(100%);
-  //transition: transform $animation-timing;
+  transform: translateX(100%);
+  transition: transform $animation-timing;
 }
 
 .cart-header {
@@ -136,21 +136,15 @@
   border-radius: 15px;
 }
 
-/* .shopping-cart-sidebar.active {
+.shopping-cart-sidebar.active {
   transform: translate(0);
 }
 
 .backdrop {
-  pointer-events: none;
   position: fixed;
   inset: 0;
   background: #000;
-  opacity: 0%;
-  z-index: 2;
-}
-
-.backdrop.active {
   opacity: 30%;
   pointer-events: auto;
+  z-index: 2;
 }
- */
