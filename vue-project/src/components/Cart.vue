@@ -46,7 +46,7 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(useCartStore, ['getProductInCart', 'toggleShoppingCart']),
+    ...mapActions(useCartStore, ['getProductInCart', 'toggleShoppingCart', 'checkout']),
     handleToggleCart() {
       this.toggleShoppingCart()
     },
@@ -55,6 +55,9 @@ export default {
         style: 'currency',
         currency: 'IDR'
       }).format(number)
+    },
+    handleCheckout() {
+      this.checkout()
     }
   },
   created() {
