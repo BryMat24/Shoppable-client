@@ -1211,6 +1211,8 @@
   padding: 20px 0;
   display: flex;
   flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 200ms ease-in-out;
 }
 
 .cart-header {
@@ -1331,24 +1333,19 @@
   border-radius: 15px;
 }
 
-/* .shopping-cart-sidebar.active {
+.shopping-cart-sidebar.active {
   transform: translate(0);
 }
 
 .backdrop {
-  pointer-events: none;
   position: fixed;
   inset: 0;
   background: #000;
-  opacity: 0%;
+  opacity: 30%;
+  pointer-events: auto;
   z-index: 2;
 }
 
-.backdrop.active {
-  opacity: 30%;
-  pointer-events: auto;
-}
- */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

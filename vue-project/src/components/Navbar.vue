@@ -39,17 +39,25 @@
       </div>
     </div>
   </div>
+  <Cart />
 </template>
 
 <script>
-import { mapWritableState } from 'pinia'
+import { mapActions, mapWritableState } from 'pinia'
 import { useUserStore } from '../stores/user'
+import Cart from '../components/Cart.vue'
+import { useCartStore } from '../stores/cart'
 
 export default {
+  components: {
+    Cart
+  },
   computed: {
-    ...mapWritableState(useUserStore, ['isLoggedIn'])
+    ...mapWritableState(useUserStore, ['isLoggedIn']),
+    ...mapWritableState(useCartStore, ['cartIsOpen'])
   },
   methods: {
+    ...mapActions(useCartStore, ['toggleShoppingCart']),
     logout() {
       this.$router.push({ name: 'home' })
       this.isLoggedIn = false
@@ -57,6 +65,9 @@ export default {
     },
     navigate(page) {
       this.$router.push({ name: page })
+    },
+    openCart() {
+      this.toggleShoppingCart()
     }
   }
 }

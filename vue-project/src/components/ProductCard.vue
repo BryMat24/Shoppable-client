@@ -27,12 +27,13 @@
 
 <script>
 import { mapActions, mapState } from 'pinia'
-import { useProductStore } from '../stores/product'
+import { useCartStore } from '../stores/cart'
+import { useUserStore } from '../stores/user'
 
 export default {
   props: ['product'],
   methods: {
-    ...mapActions(useProductStore, ['addProductToCart']),
+    ...mapActions(useCartStore, ['addProductToCart']),
     handleAddToCart() {
       if (!this.isLoggedIn) {
         this.$router.push({ name: 'login' })
@@ -48,7 +49,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useProductStore, ['isLoggedIn']),
+    ...mapState(useUserStore, ['isLoggedIn']),
     roundedRating() {
       return Math.round(this.product.rating)
     }
