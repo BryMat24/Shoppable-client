@@ -30,12 +30,14 @@
 import { mapState, mapActions } from 'pinia'
 import { useCartStore } from '../stores/cart'
 import CartItem from './CartItem.vue'
+import { useUserStore } from '../stores/user'
 
 export default {
   components: {
     CartItem
   },
   computed: {
+    ...mapState(useUserStore, ['isLoggedIn']),
     ...mapState(useCartStore, [
       'productsInCart',
       'cartTotalPrice',
@@ -53,6 +55,11 @@ export default {
         style: 'currency',
         currency: 'IDR'
       }).format(number)
+    }
+  },
+  created() {
+    if (this.isLoggedIn) {
+      this.getProductInCart()
     }
   }
 }

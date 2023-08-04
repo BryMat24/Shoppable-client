@@ -10,6 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
@@ -284,6 +285,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
@@ -552,6 +554,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
@@ -771,6 +774,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
@@ -974,6 +978,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
@@ -1106,6 +1111,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
@@ -1358,6 +1364,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {

@@ -35,7 +35,7 @@
         <span class="material-symbols-outlined" shopping-cart-button @click="openCart">
           shopping_cart
         </span>
-        <div class="rounded-circle">3</div>
+        <div class="rounded-circle">{{ totalItemInCart }}</div>
       </div>
     </div>
   </div>
@@ -43,10 +43,11 @@
 </template>
 
 <script>
-import { mapActions, mapWritableState } from 'pinia'
+import { mapActions, mapWritableState, mapState } from 'pinia'
 import { useUserStore } from '../stores/user'
 import Cart from '../components/Cart.vue'
 import { useCartStore } from '../stores/cart'
+import { useProductStore } from '../stores/product'
 
 export default {
   components: {
@@ -54,14 +55,28 @@ export default {
   },
   computed: {
     ...mapWritableState(useUserStore, ['isLoggedIn']),
-    ...mapWritableState(useCartStore, ['cartIsOpen'])
+    ...mapState(useCartStore, ['totalItemInCart']),
+    ...mapWritableState(useProductStore, ['searchInput', 'selectedCategoryName', 'categoryId'])
   },
   methods: {
+    ...mapActions(useProductStore, ['getFilteredProducts']),
     ...mapActions(useCartStore, ['toggleShoppingCart']),
     logout() {
       this.$router.push({ name: 'home' })
       this.isLoggedIn = false
       localStorage.clear()
+    },
+    performSearch(e) {
+      this.searchInput = e.target.value
+      const currentRouteName = this.$route.name
+      this.selectedCategoryName = ''
+      this.categoryId = ''
+
+      if (currentRouteName === 'product') {
+        this.getFilteredProducts()
+      } else {
+        this.$router.push({ name: 'product' })
+      }
     },
     navigate(page) {
       this.$router.push({ name: page })
