@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <section id="home-section">
     <div class="carousel-container">
       <div class="carousel">
@@ -382,9 +383,17 @@
       </div>
     </div>
   </section>
+  <Footer />
 </template>
 <script>
+import Navbar from '../components/Navbar.vue'
+import Footer from '../components/Footer.vue'
+
 export default {
+  components: {
+    Footer,
+    Navbar
+  },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
