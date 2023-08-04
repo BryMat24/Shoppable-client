@@ -1,5 +1,5 @@
 <template>
-  <div class="card-products">
+  <div class="card" target-scroll>
     <div class="card-image-box">
       <img :src="product.imageUrl" alt="photo" />
     </div>
@@ -52,6 +52,18 @@ export default {
     roundedRating() {
       return Math.round(this.product.rating)
     }
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        }
+      })
+    })
+
+    const hiddenElement = document.querySelectorAll('[target-scroll]')
+    hiddenElement.forEach((el) => observer.observe(el))
   }
 }
 </script>

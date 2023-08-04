@@ -1,6 +1,5 @@
 <template>
   <Navbar />
-  <Cart />
   <section id="product-section">
     <div class="carousel">
       <div class="slider-wrapper">
@@ -36,7 +35,7 @@
     <div class="product-content">
       <h1>Our Products</h1>
       <div class="card-container">
-        <Card v-for="product in products" :key="product.id" :product="product" />
+        <Card v-for="product in products" :key="product.id" :product="product" target-scroll />
       </div>
     </div>
   </section>
