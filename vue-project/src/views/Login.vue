@@ -9,7 +9,7 @@
 <script>
 import { mapActions } from 'pinia'
 import { useUserStore } from '../stores/user'
-import Form from '../components/loginRegisterForm.vue'
+import Form from '../components/LoginRegisterForm.vue'
 
 export default {
   components: {

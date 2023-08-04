@@ -47,7 +47,7 @@ import { useUserStore } from '../stores/user'
 
 export default {
   computed: {
-    ...mapWritableState(useUserStore, ['logout'])
+    ...mapWritableState(useUserStore, ['isLoggedIn'])
   },
   methods: {
     logout() {
