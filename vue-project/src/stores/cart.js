@@ -8,7 +8,22 @@ export const useCartStore = defineStore('cart', {
             cartIsActive: false,
             backdropIsActive: false,
             productsInCart: [],
-            cartTotalPrice: 0
+        }
+    },
+    getters: {
+        cartTotalPrice(state) {
+            let total = 0;
+            state.productsInCart.forEach((el) => {
+                total += el.Product.price * el.quantity
+            })
+            return total
+        },
+        totalItemInCart(state) {
+            let total = 0;
+            state.productsInCart.forEach((el) => {
+                total += el.quantity;
+            })
+            return total
         }
     },
     actions: {
@@ -20,7 +35,7 @@ export const useCartStore = defineStore('cart', {
             try {
                 const { data } = await axios({
                     method: 'get',
-                    url: "https://bryaniproject.productapic1.com/carts",
+                    url: "http://localhost:3000/carts",
                     headers: {
                         access_token: localStorage.getItem('access_token')
                     }
@@ -35,76 +50,78 @@ export const useCartStore = defineStore('cart', {
                 })
             }
         },
-    },
-    async addProductToCart(id) {
-        try {
-            await axios({
-                method: 'post',
-                url: `https://bryaniproject.productapic1.com/carts/${id}`,
-                headers: {
-                    access_token: localStorage.getItem('access_token')
-                }
-            })
+        async addProductToCart(id) {
+            try {
+                console.log(id);
+                await axios({
+                    method: 'post',
+                    url: `http://localhost:3000/carts/${id}`,
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    }
+                })
 
-            Swal.fire({
-                title: 'Item added to cart successfully',
-                icon: 'success',
-            })
+                Swal.fire({
+                    title: 'Item added to cart successfully',
+                    icon: 'success',
+                })
 
-            this.getProductInCart();
-        } catch (err) {
-            Swal.fire({
-                title: 'Error!',
-                text: `${err.response.data.message}`,
-                icon: 'error',
-            })
-        }
-    },
-    async deleteCartItem(id) {
-        try {
-            await axios({
-                method: 'delete',
-                url: `https://bryaniproject.productapic1.com/carts/${id}`,
-                headers: {
-                    access_token: localStorage.getItem('access_token')
-                }
-            })
+                this.getProductInCart();
+            } catch (err) {
+                console.log(err)
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
+        async deleteCartItem(id) {
+            try {
+                await axios({
+                    method: 'delete',
+                    url: `http://localhost:3000/carts/${id}`,
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    }
+                })
 
-            Swal.fire({
-                title: 'Item removed from cart successfully',
-                icon: 'success',
-            })
+                Swal.fire({
+                    title: 'Item removed from cart successfully',
+                    icon: 'success',
+                })
 
-            this.getProductInCart();
-        } catch (err) {
-            Swal.fire({
-                title: 'Error!',
-                text: `${err.response.data.message}`,
-                icon: 'error',
-            })
-        }
-    },
-    async updateCartItemQuantity(value) {
-        try {
-            const { updateStatus, id } = value;
-            await axios({
-                method: 'patch',
-                url: `https://bryaniproject.productapic1.com/carts/${id}`,
-                headers: {
-                    access_token: localStorage.getItem('access_token')
-                },
-                params: {
-                    updateStatus
-                }
-            })
+                this.getProductInCart();
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
+        async updateCartItemQuantity(value) {
+            try {
+                const { updateStatus, id } = value;
+                await axios({
+                    method: 'patch',
+                    url: `http://localhost:3000/carts/${id}`,
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    },
+                    params: {
+                        updateStatus
+                    }
+                })
 
-            this.getProductInCart();
-        } catch (err) {
-            Swal.fire({
-                title: 'Error!',
-                text: `${err.response.data.message}`,
-                icon: 'error',
-            })
-        }
+                this.getProductInCart();
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
     },
 })

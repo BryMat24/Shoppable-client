@@ -15,6 +15,7 @@ $animation-timing: 200ms ease-in-out;
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 .add-wishlist-button {
