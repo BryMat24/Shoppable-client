@@ -2,7 +2,7 @@
   <div class="shopping-cart-sidebar" shopping-cart-sidebar :class="{ active: cartIsActive }">
     <div class="cart-header">
       <div>Your Cart</div>
-      <span class="close-btn" shopping-cart-button @click="handleToggleCart">&times;</span>
+      <span class="close-btn" shopping-cart-button @click="handleCloseCart">&times;</span>
     </div>
 
     <div class="cart-items">
@@ -23,7 +23,7 @@
       <button @click="handleCheckout">Checkout</button>
     </div>
   </div>
-  <div class="backdrop" v-if="backdropIsActive" @click="handleToggleCart"></div>
+  <div class="backdrop" v-if="backdropIsActive" @click="handleCloseCart"></div>
 </template>
 
 <script>
@@ -46,9 +46,9 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(useCartStore, ['getProductInCart', 'toggleShoppingCart', 'checkout']),
-    handleToggleCart() {
-      this.toggleShoppingCart()
+    ...mapActions(useCartStore, ['getProductInCart', 'closeShoppingCart', 'checkout']),
+    handleCloseCart() {
+      this.closeShoppingCart()
     },
     formatToRupiah(number) {
       return new Intl.NumberFormat('id-ID', {

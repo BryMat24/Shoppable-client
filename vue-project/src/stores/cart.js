@@ -28,13 +28,13 @@ export const useCartStore = defineStore('cart', {
         }
     },
     actions: {
-        toggleShoppingCart() {
-            this.cartIsActive = !this.cartIsActive;
-            this.backdropIsActive = !this.backdropIsActive;
-        },
         openShoppingCart() {
             this.cartIsActive = true;
             this.backdropIsActive = true;
+        },
+        closeShoppingCart() {
+            this.cartIsActive = false;
+            this.backdropIsActive = false;
         },
         async getProductInCart() {
             try {

@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     ...mapActions(useProductStore, ['getFilteredProducts']),
-    ...mapActions(useCartStore, ['toggleShoppingCart']),
+    ...mapActions(useCartStore, ['openShoppingCart']),
     logout() {
       this.$router.push({ name: 'home' })
       this.isLoggedIn = false
@@ -80,7 +80,7 @@ export default {
       this.$router.push({ name: page })
     },
     openCart() {
-      this.toggleShoppingCart()
+      this.openShoppingCart()
     }
   }
 }
