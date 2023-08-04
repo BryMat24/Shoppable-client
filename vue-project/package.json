@@ -10,7 +10,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.48",
     "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
     "pinia": "^2.1.4",
     "sweetalert2": "^11.7.20",
     "vue": "^3.3.4",

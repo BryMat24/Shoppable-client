@@ -32,6 +32,10 @@ export const useCartStore = defineStore('cart', {
             this.cartIsActive = !this.cartIsActive;
             this.backdropIsActive = !this.backdropIsActive;
         },
+        openShoppingCart() {
+            this.cartIsActive = true;
+            this.backdropIsActive = true;
+        },
         async getProductInCart() {
             try {
                 const { data } = await axios({
