@@ -77,311 +77,13 @@
     <div id="best-seller">
       <h1 target-scroll>Top Rated</h1>
       <div class="card-container">
-        <div class="card" target-scroll>
-          <div class="card-image-box">
-            <img
-              src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e48b497e63cc46b800_base%20camp%20duffel%2002-min.png"
-              alt="photo"
-            />
-            <div class="add-wishlist-button">
-              <img
-                src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9df775b939f51a0b22f6d_Icon.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <div class="product-title-wrapper">
-              <h3 class="product-title">Pink Bag</h3>
-              <p class="product-price">$300</p>
-            </div>
-            <div class="product-rating">
-              <div class="star-wrap">
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-              </div>
-              <div class="total-rating">(121)</div>
-            </div>
-          </div>
-        </div>
-        <div class="card" target-scroll>
-          <div class="card-image-box">
-            <img
-              src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e55cc9361a8ecce6d4_flower%20leptop%20sleeve-min.png"
-              alt="photo"
-            />
-            <div class="add-wishlist-button">
-              <img
-                src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9df775b939f51a0b22f6d_Icon.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <div class="product-title-wrapper">
-              <h3 class="product-title">Pink Bag</h3>
-              <p class="product-price">$300</p>
-            </div>
-            <div class="product-rating">
-              <div class="star-wrap">
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-              </div>
-              <div class="total-rating">(121)</div>
-            </div>
-          </div>
-        </div>
-        <div class="card" target-scroll>
-          <div class="card-image-box">
-            <img
-              src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e7e006821d3b04db74_Tote%20Medium-min.png"
-              alt="photo"
-            />
-            <div class="add-wishlist-button">
-              <img
-                src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9df775b939f51a0b22f6d_Icon.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <div class="product-title-wrapper">
-              <h3 class="product-title">Pink Bag</h3>
-              <p class="product-price">$300</p>
-            </div>
-            <div class="product-rating">
-              <div class="star-wrap">
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-              </div>
-              <div class="total-rating">(121)</div>
-            </div>
-          </div>
-        </div>
+        <Card v-for="product in topRated" :key="product.id" :product="product" />
       </div>
     </div>
     <div id="new-arrival">
       <h1 target-scroll>New Arrival</h1>
       <div class="card-container">
-        <div class="card" target-scroll>
-          <div class="card-image-box">
-            <img
-              src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e7e006821d3b04db74_Tote%20Medium-min.png"
-              alt="photo"
-            />
-            <div class="add-wishlist-button">
-              <img
-                src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9df775b939f51a0b22f6d_Icon.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <div class="product-title-wrapper">
-              <h3 class="product-title">Pink Bag</h3>
-              <p class="product-price">$300</p>
-            </div>
-            <div class="product-rating">
-              <div class="star-wrap">
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-              </div>
-              <div class="total-rating">(121)</div>
-            </div>
-          </div>
-        </div>
-        <div class="card" target-scroll>
-          <div class="card-image-box">
-            <img
-              src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e54b76914b262f2448_headphone-min.png"
-              alt="photo"
-            />
-            <div class="add-wishlist-button">
-              <img
-                src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9df775b939f51a0b22f6d_Icon.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <div class="product-title-wrapper">
-              <h3 class="product-title">Green headset</h3>
-              <p class="product-price">$200</p>
-            </div>
-            <div class="product-rating">
-              <div class="star-wrap">
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-              </div>
-              <div class="total-rating">(121)</div>
-            </div>
-          </div>
-        </div>
-        <div class="card" target-scroll>
-          <div class="card-image-box">
-            <img
-              src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e74b769109fd2f245a_tomford%20watch-min.png"
-              alt="photo"
-            />
-            <div class="add-wishlist-button">
-              <img
-                src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9df775b939f51a0b22f6d_Icon.svg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <div class="product-title-wrapper">
-              <h3 class="product-title">Red Watch</h3>
-              <p class="product-price">$100</p>
-            </div>
-            <div class="product-rating">
-              <div class="star-wrap">
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-                <img
-                  src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e9d9ee08987e0ffb064bca_Star.svg"
-                  alt="product-star"
-                  class="product-star"
-                />
-              </div>
-              <div class="total-rating">(121)</div>
-            </div>
-          </div>
-        </div>
+        <Card v-for="product in newestArrival" :key="product.id" :product="product" />
       </div>
     </div>
   </section>
@@ -390,11 +92,21 @@
 <script>
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
+import { mapActions, mapState } from 'pinia'
+import { useProductStore } from '../stores/product'
+import Card from '../components/ProductCard.vue'
 
 export default {
   components: {
     Footer,
-    Navbar
+    Navbar,
+    Card
+  },
+  methods: {
+    ...mapActions(useProductStore, ['getNewestArrival', 'getTopRated'])
+  },
+  computed: {
+    ...mapState(useProductStore, ['newestArrival', 'topRated'])
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
@@ -407,6 +119,10 @@ export default {
 
     const hiddenElement = document.querySelectorAll('[target-scroll]')
     hiddenElement.forEach((el) => observer.observe(el))
+  },
+  created() {
+    this.getNewestArrival()
+    this.getTopRated()
   }
 }
 </script>

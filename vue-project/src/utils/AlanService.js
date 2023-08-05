@@ -63,7 +63,7 @@ const checkout = function () {
     cartStore.checkout();
 }
 
-const initAlanBtn = function () {
+const getAlanInstance = function () {
     alanInstance = alanBtn({
         key: import.meta.env.VITE_ALAN_KEY,
         onCommand: (commandData) => {
@@ -82,6 +82,8 @@ const initAlanBtn = function () {
             }
         }
     });
+
+    return alanInstance;
 };
 
-export { initAlanBtn, alanInstance };
+export { getAlanInstance };
