@@ -191,6 +191,8 @@ export const useCartStore = defineStore('cart', {
                         access_token: localStorage.getItem('access_token')
                     }
                 })
+
+                this.getProductInCart();
             } catch (err) {
                 Swal.fire({
                     title: 'Error!',
