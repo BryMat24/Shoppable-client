@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import { initAlanBtn } from '../utils/AlanService'
+import { getAlanInstance } from '../utils/AlanService'
 
 export const useUserStore = defineStore('user', {
   state: () => {
@@ -28,7 +28,7 @@ export const useUserStore = defineStore('user', {
         this.isLoggedIn = true;
         localStorage.setItem('access_token', data.access_token);
         localStorage.setItem('email', data.user.email);
-        initAlanBtn();
+        getAlanInstance();
 
         this.router.push({ name: 'home' });
       } catch (err) {
