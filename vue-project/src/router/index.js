@@ -3,10 +3,10 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Home from '../views/Home.vue'
 import ProductPage from '../views/Product.vue'
-/* import OrderPage from '../views/Order.vue'
-import OrderDetailPage from '../views/OrderDetail.vue'
-import ProductDetail from '../views/ProductDetail.vue'
-  */
+//import OrderPage from '../views/Order.vue'
+//import OrderDetailPage from '../views/OrderDetail.vue'
+import ProductDetailPage from '../views/ProductDetail.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -29,6 +29,11 @@ const router = createRouter({
       path: '/product',
       name: 'product',
       component: ProductPage
+    },
+    {
+      path: '/product/:id',
+      name: 'productDetail',
+      component: ProductDetailPage
     }
   ]
 })

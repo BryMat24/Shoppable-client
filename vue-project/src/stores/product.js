@@ -11,6 +11,8 @@ export const useProductStore = defineStore('product', {
             categoryId: '',
             searchInput: '',
             selectedCategoryName: '',
+            productDetail: {},
+            similarProducts: []
         }
     },
     actions: {
@@ -52,5 +54,37 @@ export const useProductStore = defineStore('product', {
                 })
             }
         },
+        async getProductDetail(id) {
+            try {
+                const { data } = await axios({
+                    method: "get",
+                    url: `http://localhost:3000/products/${id}`
+                })
+
+                this.productDetail = data;
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
+        async getSimilarProducts(id) {
+            try {
+                const { data } = await axios({
+                    method: "get",
+                    url: `http://localhost:3000/products/similar/${id}`
+                })
+
+                this.similarProducts = data;
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        }
     },
 })
