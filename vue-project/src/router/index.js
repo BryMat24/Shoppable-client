@@ -37,6 +37,6 @@ const router = createRouter({
   if (to.name === 'login' && localStorage.getItem('access_token')) next({ name: 'home' })
   else if (to.name === 'order' && !localStorage.getItem('access_token')) next({ name: 'home' })
   else next()
-})
- */
+}) */
+
 export default router

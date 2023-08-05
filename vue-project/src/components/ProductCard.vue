@@ -38,7 +38,7 @@ export default {
       if (!this.isLoggedIn) {
         this.$router.push({ name: 'login' })
       } else {
-        this.addProductToCart(this.product.id)
+        this.addProductToCart({ id: this.product.id })
       }
     },
     formatToRupiah(number) {

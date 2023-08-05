@@ -26,9 +26,7 @@
       >
         person
       </span>
-      <span class="material-symbols-outlined" @click="navigate('order')" v-if="isLoggedIn">
-        history
-      </span>
+      <span class="material-symbols-outlined" v-if="isLoggedIn"> history </span>
       <!-- <span class="material-symbols-outlined">favorite</span> -->
       <span class="material-symbols-outlined" @click="logout" v-if="isLoggedIn"> logout </span>
       <div class="shopping-cart-button" v-if="isLoggedIn">
@@ -60,7 +58,7 @@ export default {
   },
   methods: {
     ...mapActions(useProductStore, ['getFilteredProducts']),
-    ...mapActions(useCartStore, ['toggleShoppingCart']),
+    ...mapActions(useCartStore, ['openShoppingCart']),
     logout() {
       this.$router.push({ name: 'home' })
       this.isLoggedIn = false
@@ -82,7 +80,7 @@ export default {
       this.$router.push({ name: page })
     },
     openCart() {
-      this.toggleShoppingCart()
+      this.openShoppingCart()
     }
   }
 }
