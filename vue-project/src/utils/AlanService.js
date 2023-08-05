@@ -42,7 +42,6 @@ const clearCart = async function () {
 const removeCartProduct = async function (payload) {
     const { name } = payload;
     const cartStore = useCartStore();
-
     const productInCart = cartStore.productsInCart;
     const product = productInCart.find((el) => el.Product.title.toLowerCase() === name.toLowerCase());
 
@@ -85,4 +84,4 @@ const initAlanBtn = function () {
     });
 };
 
-export { initAlanBtn };
+export { initAlanBtn, alanInstance };
