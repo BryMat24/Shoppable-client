@@ -1,8 +1,8 @@
 <template>
   <div class="card" target-scroll>
-    <div class="card-image-box">
+    <router-link :to="{ name: 'productDetail', params: { id: product.id } }" class="card-image-box">
       <img :src="product.imageUrl" alt="photo" />
-    </div>
+    </router-link>
     <div class="product-card-info">
       <div class="product-title-wrapper">
         <h3 class="product-title">{{ product.title }}</h3>
