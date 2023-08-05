@@ -12,7 +12,9 @@ export const useProductStore = defineStore('product', {
             searchInput: '',
             selectedCategoryName: '',
             productDetail: {},
-            similarProducts: []
+            similarProducts: [],
+            newestArrival: [],
+            topRated: []
         }
     },
     actions: {
@@ -79,6 +81,38 @@ export const useProductStore = defineStore('product', {
 
                 this.similarProducts = data;
             } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
+        async getNewestArrival() {
+            try {
+                const { data } = await axios({
+                    method: "get",
+                    url: `http://localhost:3000/products/newest-release`
+                })
+
+                this.newestArrival = data;
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
+        async getTopRated() {
+            try {
+                const { data } = await axios({
+                    method: "get",
+                    url: `http://localhost:3000/products/top-rated`
+                })
+
+                this.topRated = data;
+            } catch (error) {
                 Swal.fire({
                     title: 'Error!',
                     text: `${err.response.data.message}`,
