@@ -1,5 +1,6 @@
 import { useCartStore } from '../stores/cart';
 import { useProductStore } from '../stores/product'
+import { useOrderStore } from '../stores/order';
 import alanBtn from '@alan-ai/alan-sdk-web';
 
 let alanInstance;
@@ -55,12 +56,15 @@ const removeCartProduct = async function (payload) {
 
 const checkout = function () {
     const cartStore = useCartStore();
+    const orderStore = useOrderStore();
     if (!cartStore.productsInCart.length) {
         alanInstance.playText("Cart is still empty!")
         return;
     }
 
-    cartStore.checkout();
+    alanInstance.playText("Checking out!")
+    alanInstance.deactivate();
+    orderStore.checkout();
 }
 
 const getAlanInstance = function () {
