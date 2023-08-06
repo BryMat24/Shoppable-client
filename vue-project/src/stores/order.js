@@ -7,9 +7,21 @@ export const useOrderStore = defineStore('order', {
     state: () => {
         return {
             orderId: null,
+            street: '',
+            postal_code: '',
+            city: '',
+            region: '',
+            country: ''
         }
     },
     actions: {
+        async updateLocation(address) {
+            this.street = address.street
+            this.postal_code = address.postal_code
+            this.region = address.region
+            this.city = address.city
+            this.country = address.country
+        },
         async checkout() {
             try {
                 const cartStore = useCartStore();

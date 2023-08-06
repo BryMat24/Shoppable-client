@@ -59,7 +59,7 @@ export default {
       }).format(number)
     },
     handleCheckout() {
-      this.checkout()
+      this.$router.push({ name: 'checkout' })
     }
   },
   created() {

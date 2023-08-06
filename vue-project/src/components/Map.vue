@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="map" id="map" style="width: 1000px; height: 500px"></div>
-    <p>Latitude: {{ position.lat }}</p>
-    <p>Longitude: {{ position.lng }}</p>
-    <p>Full: {{ currentFullAddress }}</p>
+    <div class="map" id="map" style="width: 800px; height: 500px"></div>
   </div>
 
   <div>
@@ -11,36 +8,39 @@
 
     <div>
       <label for="street">Address line</label>
-      <input type="text" id="street" v-model="street" />
+      <input type="text" id="street" ref="street" />
     </div>
 
     <div>
       <label for="postal_code">Postal Code</label>
-      <input type="text" id="postal_code" v-model="postal_code" />
+      <input type="text" id="postal_code" ref="postal_code" />
     </div>
 
     <div>
       <label for="city">City</label>
-      <input type="text" id="city" v-model="city" />
+      <input type="text" id="city" ref="city" />
     </div>
 
     <div>
       <label for="region">State/Region</label>
-      <input type="text" id="region" v-model="region" />
+      <input type="text" id="region" ref="region" />
     </div>
 
     <div>
       <label for="country">Country</label>
-      <input type="text" id="country" v-model="country" />
+      <input type="text" id="country" ref="country" />
     </div>
   </div>
 
   <button @click="getCurrentLocation">GET MY CURRENT LOCATION</button>
+  <button @click="fillform">SET MARKER AS LOCATION</button>
 </template>
 
 <script>
 import { Loader } from '@googlemaps/js-api-loader'
 import axios from 'axios'
+import { mapActions, mapState } from 'pinia'
+import { useOrderStore } from '../stores/order'
 
 export default {
   data() {
@@ -51,15 +51,14 @@ export default {
       currentFullAddress: null,
       geocoder: null,
       infowindow: null,
-      autocomplete: null,
-      street: '',
-      postal_code: '',
-      city: '',
-      region: '',
-      country: ''
+      autocomplete: null
     }
   },
+  computed: {
+    ...mapState(useOrderStore, ['street', 'postal_code', 'city', 'country', 'region'])
+  },
   methods: {
+    ...mapActions(useOrderStore, ['updateLocation']),
     async initMap() {
       try {
         const loader = new Loader({
@@ -169,13 +168,15 @@ export default {
         }
       })
 
-      this.street = address.street
-      this.postal_code = address.postal_code
-      this.region = address.region
-      this.city = address.city
-      this.country = address.country
-
+      this.updateLocation(address)
       return address
+    },
+    fillform() {
+      this.$refs.street.value = this.street
+      this.$refs.postal_code.value = this.postal_code
+      this.$refs.city.value = this.city
+      this.$refs.region.value = this.region
+      this.$refs.country.value = this.country
     }
   },
   async mounted() {
