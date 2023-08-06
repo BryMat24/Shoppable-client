@@ -85,7 +85,6 @@ export default {
         this.map.addListener('click', (event) => {
           this.position.lat = event.latLng.lat()
           this.position.lng = event.latLng.lng()
-          this.marker.setPosition(this.position)
           this.geocodeLatLng()
         })
       } catch (error) {
@@ -101,14 +100,13 @@ export default {
 
         this.position.lat = data.location.lat
         this.position.lng = data.location.lng
-        this.marker.setPosition(this.position)
         this.map.setCenter(this.position)
         this.geocodeLatLng()
       } catch (err) {
         console.log(err)
       }
     },
-    // reverse geocode
+    // reverse geocode - to get the infowindow
     async geocodeLatLng() {
       try {
         const response = await this.geocoder.geocode({ location: this.position })
@@ -118,7 +116,7 @@ export default {
           this.marker.setPosition(this.position)
           this.infowindow.setContent(response.results[0].formatted_address)
           this.infowindow.open(this.map, this.marker)
-          this.currentFullAddress = this.getAddressObject(response.results[0].address_components)
+          this.getAddressObject(response.results[0].address_components)
         } else {
           window.alert('No results found')
         }
@@ -171,6 +169,32 @@ export default {
       this.updateLocation(address)
       return address
     },
+    initAutoComplete() {
+      this.autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('autocomplete'),
+        {
+          fields: ['address_component', 'geometry'],
+          bounds: new google.maps.LatLngBounds(this.position)
+        }
+      )
+
+      this.autocomplete.addListener('place_changed', this.onPlaceChanged, { passive: true })
+    },
+    async onPlaceChanged() {
+      const place = this.autocomplete.getPlace()
+
+      if (!place.geometry) {
+        // Invalid place selected
+        console.log('place is empty')
+        return
+      }
+
+      // Update the map position and marker
+      this.position.lat = place.geometry.location.lat()
+      this.position.lng = place.geometry.location.lng()
+      await this.geocodeLatLng()
+      this.fillform()
+    },
     fillform() {
       this.$refs.street.value = this.street
       this.$refs.postal_code.value = this.postal_code
@@ -181,6 +205,7 @@ export default {
   },
   async mounted() {
     await this.initMap()
+    this.initAutoComplete()
     this.getCurrentLocation()
   }
 }
