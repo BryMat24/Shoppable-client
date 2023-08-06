@@ -95,7 +95,7 @@ export const useCartStore = defineStore('cart', {
                     icon: 'success',
                 })
 
-                this.closeShoppingCart();
+                this.getProductInCart();
             } catch (err) {
                 Swal.fire({
                     title: 'Error!',
