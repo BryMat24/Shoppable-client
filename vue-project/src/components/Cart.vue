@@ -31,6 +31,7 @@ import { mapState, mapActions } from 'pinia'
 import { useCartStore } from '../stores/cart'
 import CartItem from './CartItem.vue'
 import { useUserStore } from '../stores/user'
+import { useOrderStore } from '../stores/order'
 
 export default {
   components: {
@@ -46,7 +47,8 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(useCartStore, ['getProductInCart', 'closeShoppingCart', 'checkout']),
+    ...mapActions(useCartStore, ['getProductInCart', 'closeShoppingCart']),
+    ...mapActions(useOrderStore, ['checkout']),
     handleCloseCart() {
       this.closeShoppingCart()
     },

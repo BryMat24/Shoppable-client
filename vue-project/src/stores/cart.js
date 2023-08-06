@@ -8,7 +8,6 @@ export const useCartStore = defineStore('cart', {
             cartIsActive: false,
             backdropIsActive: false,
             productsInCart: [],
-            orderId: null,
         }
     },
     getters: {
@@ -96,7 +95,7 @@ export const useCartStore = defineStore('cart', {
                     icon: 'success',
                 })
 
-                this.getProductInCart();
+                this.closeShoppingCart();
             } catch (err) {
                 Swal.fire({
                     title: 'Error!',
@@ -120,60 +119,6 @@ export const useCartStore = defineStore('cart', {
                 })
 
                 this.getProductInCart();
-            } catch (err) {
-                Swal.fire({
-                    title: 'Error!',
-                    text: `${err.response.data.message}`,
-                    icon: 'error',
-                })
-            }
-        },
-        async checkout() {
-            try {
-                if (!this.productsInCart.length) throw { message: "Cart is empty!" }
-
-                const { data } = await axios({
-                    url: 'http://localhost:3000/payment-token',
-                    method: 'post',
-                    headers: {
-                        access_token: localStorage.getItem('access_token')
-                    },
-                    data: {
-                        amount: this.cartTotalPrice
-                    }
-                })
-
-                this.orderId = data.orderId;
-                const cb = this.updatePaymentStatus;
-                window.snap.pay(data.midtransToken.token, {
-                    onSuccess: function (result) {
-                        cb();
-                    },
-                })
-
-            } catch (err) {
-                const error = err.message ? err.message : err.response.data.message;
-                Swal.fire({
-                    title: 'Error!',
-                    text: error,
-                    icon: 'error',
-                })
-            }
-        },
-        async updatePaymentStatus() {
-            try {
-                await axios({
-                    url: `http://localhost:3000/orders/${this.orderId}`,
-                    method: 'patch',
-                    headers: {
-                        access_token: localStorage.getItem('access_token')
-                    }
-                })
-
-                this.productsInCart = [];
-                this.orderId = null;
-                this.toggleShoppingCart();
-                this.deleteUserCart();
             } catch (err) {
                 Swal.fire({
                     title: 'Error!',
