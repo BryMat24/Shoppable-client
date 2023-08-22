@@ -12,7 +12,7 @@
           <li>Order History</li>
         </ul>
       </aside>
-      <div class="brand-name" @click="navigate('home')">NAME</div>
+      <div class="brand-name" @click="navigate('home')">MyStore</div>
     </div>
     <div class="searchbar">
       <span class="material-symbols-outlined"> search </span>
@@ -26,7 +26,9 @@
       >
         person
       </span>
-      <span class="material-symbols-outlined" v-if="isLoggedIn"> history </span>
+      <span class="material-symbols-outlined" v-if="isLoggedIn" @click="navigate('order')">
+        history
+      </span>
       <!-- <span class="material-symbols-outlined">favorite</span> -->
       <span class="material-symbols-outlined" @click="logout" v-if="isLoggedIn"> logout </span>
       <div class="shopping-cart-button" v-if="isLoggedIn">

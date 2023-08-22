@@ -3,8 +3,8 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Home from '../views/Home.vue'
 import ProductPage from '../views/Product.vue'
-//import OrderPage from '../views/Order.vue'
-//import OrderDetailPage from '../views/OrderDetail.vue'
+import OrderPage from '../views/Order.vue'
+import OrderDetailPage from '../views/OrderDetail.vue'
 import ProductDetailPage from '../views/ProductDetail.vue'
 import CheckoutPage from '../views/Checkout.vue'
 
@@ -40,14 +40,24 @@ const router = createRouter({
       path: '/checkout',
       name: 'checkout',
       component: CheckoutPage
-    }
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: OrderPage
+    },
+    {
+      path: '/orders/:id',
+      name: 'orderDetail',
+      component: OrderDetailPage
+    },
   ]
 })
 
-/* router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   if (to.name === 'login' && localStorage.getItem('access_token')) next({ name: 'home' })
   else if (to.name === 'order' && !localStorage.getItem('access_token')) next({ name: 'home' })
   else next()
-}) */
+})
 
 export default router

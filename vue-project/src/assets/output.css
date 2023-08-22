@@ -1601,6 +1601,111 @@
   }
 }
  */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+}
+
+.card {
+  transform: translateY(20%);
+  transition: transform 0.5s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-wishlist-button {
+  position: absolute;
+  top: 25px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 100px;
+}
+
+.card.show {
+  transform: translateY(0);
+}
+
+.card-image-box {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f6f6;
+  margin-top: 15px;
+  font-size: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 300px;
+  width: 100%;
+}
+
+.card-image-box img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  object-fit: contain;
+}
+.card-image-box img:hover {
+  transform: scale(1.1);
+}
+
+.product-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  flex: 1;
+}
+
+.product-title {
+  font-size: 1rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.product-star {
+  width: 14px;
+  margin-right: 2px;
+}
+
+.product-rating {
+  display: flex;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.add-to-cart-button {
+  border: 1.5px solid #003d29;
+  padding: 10px 25px;
+  border-radius: 25px;
+  background-color: transparent;
+  font-weight: bold;
+  width: 180px;
+  transition: background-color 0.5s ease-in;
+}
+.add-to-cart-button:hover {
+  background-color: #003d29;
+  color: white;
+}
+
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .table-container {
   max-width: 1000px;
   margin-left: auto;
@@ -1619,6 +1724,24 @@
   font-size: 0.5em;
 }
 
+.table-header {
+  color: black;
+}
+
+.router-link {
+  text-decoration: none;
+  color: black;
+}
+
+.router-link div {
+  background-color: #f5f6f6;
+  width: 80px;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+}
+
 .responsive-table li {
   border-radius: 3px;
   padding: 25px 30px;
@@ -1627,7 +1750,7 @@
   margin-bottom: 25px;
 }
 .responsive-table .table-header {
-  background-color: #95a5a6;
+  background-color: #f5f6f6;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.03em;

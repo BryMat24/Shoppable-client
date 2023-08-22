@@ -60,6 +60,7 @@ export default {
     },
     handleCheckout() {
       this.$router.push({ name: 'checkout' })
+      this.handleCloseCart()
     }
   },
   created() {
