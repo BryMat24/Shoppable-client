@@ -37,7 +37,7 @@
       </div>
     </div>
   </div>
-  <Cart />
+  <Cart v-if="isLoggedIn" />
 </template>
 
 <script>

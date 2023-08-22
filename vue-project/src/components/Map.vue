@@ -1,39 +1,42 @@
 <template>
-  <div>
-    <div class="map" id="map" style="width: 800px; height: 500px"></div>
+  <div id="billing-section">
+    <h1 class="billing-detail-header">Billing details</h1>
+
+    <div>
+      <div class="map" id="map"></div>
+    </div>
+
+    <div class="map-btn-container">
+      <button @click="fillCurrentLocation" class="map-btn">GET MY CURRENT LOCATION</button>
+      <button @click="fillform" class="map-btn">SET MARKER AS LOCATION</button>
+    </div>
+
+    <div class="checkout-form-container">
+      <input id="autocomplete" placeholder="Enter a place" type="text" ref="autocomplete" />
+      <div>
+        <label for="street">Address line</label>
+        <input type="text" id="street" ref="street" />
+      </div>
+      <div>
+        <label for="country">Country</label>
+        <input type="text" id="country" ref="country" />
+      </div>
+      <div class="address-group">
+        <div>
+          <label for="city">City</label>
+          <input type="text" id="city" ref="city" />
+        </div>
+        <div>
+          <label for="region">State/Region</label>
+          <input type="text" id="region" ref="region" />
+        </div>
+        <div>
+          <label for="postal_code">Postal Code</label>
+          <input type="text" id="postal_code" ref="postal_code" />
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <input id="autocomplete" placeholder="Enter a place" type="text" />
-
-    <div>
-      <label for="street">Address line</label>
-      <input type="text" id="street" ref="street" />
-    </div>
-
-    <div>
-      <label for="postal_code">Postal Code</label>
-      <input type="text" id="postal_code" ref="postal_code" />
-    </div>
-
-    <div>
-      <label for="city">City</label>
-      <input type="text" id="city" ref="city" />
-    </div>
-
-    <div>
-      <label for="region">State/Region</label>
-      <input type="text" id="region" ref="region" />
-    </div>
-
-    <div>
-      <label for="country">Country</label>
-      <input type="text" id="country" ref="country" />
-    </div>
-  </div>
-
-  <button @click="getCurrentLocation">GET MY CURRENT LOCATION</button>
-  <button @click="fillform">SET MARKER AS LOCATION</button>
 </template>
 
 <script>
@@ -61,6 +64,7 @@ export default {
     ...mapActions(useOrderStore, ['updateLocation']),
     async initMap() {
       try {
+        // loads the map
         const loader = new Loader({
           apiKey: import.meta.env.VITE_MAPS_KEY,
           version: 'weekly',
@@ -157,6 +161,7 @@ export default {
         city: '',
         country: ''
       }
+
       address_components.forEach((component) => {
         for (let shouldBe in ShouldBeComponent) {
           // if the type of component matches the type in the should be component, start mapping
@@ -169,6 +174,7 @@ export default {
       this.updateLocation(address)
       return address
     },
+    // place api - autocomplete the form
     initAutoComplete() {
       this.autocomplete = new google.maps.places.Autocomplete(
         document.getElementById('autocomplete'),
@@ -195,7 +201,12 @@ export default {
       await this.geocodeLatLng()
       this.fillform()
     },
+    fillCurrentLocation() {
+      this.getCurrentLocation()
+      this.fillform()
+    },
     fillform() {
+      this.$refs.autocomplete.value = ''
       this.$refs.street.value = this.street
       this.$refs.postal_code.value = this.postal_code
       this.$refs.city.value = this.city
