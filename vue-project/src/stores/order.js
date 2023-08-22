@@ -27,6 +27,7 @@ export const useOrderStore = defineStore('order', {
                 const cartStore = useCartStore();
                 if (!cartStore.productsInCart.length) throw { message: "Cart is empty!" }
 
+                // generate unique payment token
                 const { data } = await axios({
                     url: 'http://localhost:3000/payment-token',
                     method: 'post',
@@ -70,6 +71,7 @@ export const useOrderStore = defineStore('order', {
                 this.orderId = null;
                 cartStore.closeShoppingCart();
                 cartStore.deleteUserCart();
+                this.router.push({ name: 'product' });
             } catch (err) {
                 Swal.fire({
                     title: 'Error!',
