@@ -22,7 +22,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: "https://bryaniproject.productapic1.com/categories"
+                    url: "http://localhost:3000/categories"
                 })
 
                 this.categories = data;
