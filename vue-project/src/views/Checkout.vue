@@ -21,7 +21,7 @@
             </tr>
           </tbody>
         </table>
-        <button>Place Order</button>
+        <button @click="handleCheckout">Place Order</button>
       </div>
     </div>
   </div>
@@ -31,6 +31,7 @@
 import { mapActions, mapState } from 'pinia'
 import Map from '../components/Map.vue'
 import { useCartStore } from '../stores/cart'
+import { useOrderStore } from '../stores/order'
 export default {
   components: {
     Map
@@ -40,11 +41,15 @@ export default {
   },
   methods: {
     ...mapActions(useCartStore, ['getProductInCart']),
+    ...mapActions(useOrderStore, ['checkout']),
     formatToRupiah(number) {
       return new Intl.NumberFormat('id-ID', {
         style: 'currency',
         currency: 'IDR'
       }).format(number)
+    },
+    handleCheckout() {
+      this.checkout()
     }
   },
   mounted() {

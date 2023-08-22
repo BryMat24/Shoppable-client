@@ -11,7 +11,9 @@ export const useOrderStore = defineStore('order', {
             postal_code: '',
             city: '',
             region: '',
-            country: ''
+            country: '',
+            orderHistory: [],
+            currentOrderDetail: []
         }
     },
     actions: {
@@ -27,6 +29,7 @@ export const useOrderStore = defineStore('order', {
                 const cartStore = useCartStore();
                 if (!cartStore.productsInCart.length) throw { message: "Cart is empty!" }
 
+                // generate unique payment token
                 const { data } = await axios({
                     url: 'http://localhost:3000/payment-token',
                     method: 'post',
@@ -70,6 +73,7 @@ export const useOrderStore = defineStore('order', {
                 this.orderId = null;
                 cartStore.closeShoppingCart();
                 cartStore.deleteUserCart();
+                this.router.push({ name: 'product' });
             } catch (err) {
                 Swal.fire({
                     title: 'Error!',
@@ -78,5 +82,43 @@ export const useOrderStore = defineStore('order', {
                 })
             }
         },
+        async getOrderHistory() {
+            try {
+                const { data } = await axios({
+                    url: `http://localhost:3000/orders`,
+                    method: 'get',
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    }
+                })
+
+                this.orderHistory = data;
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        },
+        async getOrderDetail(id) {
+            try {
+                const { data } = await axios({
+                    url: `http://localhost:3000/orders/${id}`,
+                    method: 'get',
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    }
+                })
+
+                this.currentOrderDetail = data;
+            } catch (err) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.response.data.message}`,
+                    icon: 'error',
+                })
+            }
+        }
     },
 })
