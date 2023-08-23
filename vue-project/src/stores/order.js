@@ -57,7 +57,7 @@ export const useOrderStore = defineStore('order', {
                 })
 
             } catch (err) {
-                const error = err.message ? err.message : err.response.data.message;
+                const error = err?.response?.data?.message;
                 Swal.fire({
                     title: 'Error!',
                     text: error,
