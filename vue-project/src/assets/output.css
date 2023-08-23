@@ -1354,6 +1354,15 @@
   z-index: 2;
 }
 
+.errorMessage {
+  color: white;
+  background-color: #f87171;
+  margin: 10px 20px;
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+}
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

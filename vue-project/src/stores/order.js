@@ -37,7 +37,14 @@ export const useOrderStore = defineStore('order', {
                         access_token: localStorage.getItem('access_token')
                     },
                     data: {
-                        amount: cartStore.cartTotalPrice
+                        amount: cartStore.cartTotalPrice,
+                        address: {
+                            streetAddress: this.street,
+                            postalCode: this.postal_code,
+                            state: this.region,
+                            city: this.city,
+                            country: this.country
+                        }
                     }
                 })
 
