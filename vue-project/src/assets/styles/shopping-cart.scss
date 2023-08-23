@@ -148,3 +148,12 @@
   pointer-events: auto;
   z-index: 2;
 }
+
+.errorMessage {
+  color: white;
+  background-color: $light-pink;
+  margin: 10px 20px;
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+}

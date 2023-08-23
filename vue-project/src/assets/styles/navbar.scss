@@ -89,7 +89,7 @@ $x-width: calc($hamburger-height * 1.41421356237);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f87171;
+  background-color: $light-pink;
   color: white;
   font-size: 0.7rem;
   border-radius: 50%;

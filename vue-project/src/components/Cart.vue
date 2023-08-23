@@ -5,6 +5,8 @@
       <span class="close-btn" shopping-cart-button @click="handleCloseCart">&times;</span>
     </div>
 
+    <p v-if="cartEmptyError" class="errorMessage">Cart is still empty</p>
+
     <div class="cart-items">
       <CartItem
         v-for="cartProduct in productsInCart"
@@ -34,6 +36,11 @@ import { useUserStore } from '../stores/user'
 import { useOrderStore } from '../stores/order'
 
 export default {
+  data() {
+    return {
+      cartEmptyError: false
+    }
+  },
   components: {
     CartItem
   },
@@ -50,6 +57,7 @@ export default {
     ...mapActions(useCartStore, ['getProductInCart', 'closeShoppingCart']),
     ...mapActions(useOrderStore, ['checkout']),
     handleCloseCart() {
+      this.cartEmptyError = false
       this.closeShoppingCart()
     },
     formatToRupiah(number) {
@@ -59,8 +67,13 @@ export default {
       }).format(number)
     },
     handleCheckout() {
-      this.$router.push({ name: 'checkout' })
-      this.handleCloseCart()
+      if (this.productsInCart.length) {
+        this.$router.push({ name: 'checkout' })
+        this.handleCloseCart()
+        this.cartEmptyError = false
+      } else {
+        this.cartEmptyError = true
+      }
     }
   },
   created() {
