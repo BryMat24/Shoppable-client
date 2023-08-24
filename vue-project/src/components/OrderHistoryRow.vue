@@ -1,7 +1,8 @@
 <template>
   <li class="table-row" @click="seeDetail">
-    <div class="col col-1" data-label="Job Id">{{ order.id }}</div>
-    <div class="col col-3" data-label="Amount">{{ formatDate(order.updatedAt) }}</div>
+    <div class="col col-3">{{ order.id }}</div>
+    <div class="col col-3">{{ formatDate(order.updatedAt) }}</div>
+    <div class="col col-1">{{ formatToRupiah(order.totalPrice) }}</div>
   </li>
 </template>
 
@@ -16,6 +17,12 @@ export default {
         month: '2-digit',
         year: 'numeric'
       })
+    },
+    formatToRupiah(number) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+      }).format(number)
     },
     seeDetail() {
       this.$router.push({ name: 'orderDetail', params: { id: this.order.id } })
