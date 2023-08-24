@@ -7,25 +7,14 @@ export const useOrderStore = defineStore('order', {
     state: () => {
         return {
             orderId: null,
-            street: '',
-            postal_code: '',
-            city: '',
-            region: '',
-            country: '',
             orderHistory: [],
             currentOrderDetail: []
         }
     },
     actions: {
-        async updateLocation(address) {
-            this.street = address.street
-            this.postal_code = address.postal_code
-            this.region = address.region
-            this.city = address.city
-            this.country = address.country
-        },
-        async checkout() {
+        async checkout(value) {
             try {
+                console.log(value);
                 const cartStore = useCartStore();
                 if (!cartStore.productsInCart.length) throw { message: "Cart is empty!" }
 
@@ -38,13 +27,7 @@ export const useOrderStore = defineStore('order', {
                     },
                     data: {
                         amount: cartStore.cartTotalPrice,
-                        address: {
-                            streetAddress: this.street,
-                            postalCode: this.postal_code,
-                            state: this.region,
-                            city: this.city,
-                            country: this.country
-                        }
+                        address: value
                     }
                 })
 
@@ -57,7 +40,7 @@ export const useOrderStore = defineStore('order', {
                 })
 
             } catch (err) {
-                const error = err.message ? err.message : err.response.data.message;
+                const error = err?.response?.data?.message;
                 Swal.fire({
                     title: 'Error!',
                     text: error,
