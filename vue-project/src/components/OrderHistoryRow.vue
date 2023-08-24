@@ -2,6 +2,9 @@
   <li class="table-row" @click="seeDetail">
     <div class="col col-3">{{ order.id }}</div>
     <div class="col col-3">{{ formatDate(order.updatedAt) }}</div>
+    <div class="col col-3">
+      {{ order.Address?.street }}, {{ order.Address?.city }}, {{ order.Address?.country }}
+    </div>
     <div class="col col-1">{{ formatToRupiah(order.totalPrice) }}</div>
   </li>
 </template>

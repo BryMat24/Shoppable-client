@@ -5,6 +5,7 @@
       <li class="table-header">
         <div class="col col-3">Order Id</div>
         <div class="col col-3">Date</div>
+        <div class="col col-3">Address</div>
         <div class="col col-1">Amount</div>
       </li>
       <Row v-for="order in orderHistory" :key="order.id" :order="order" />
