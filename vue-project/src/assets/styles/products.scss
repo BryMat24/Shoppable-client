@@ -25,6 +25,13 @@
   }
 }
 
+.filter-by-category {
+  outline: none;
+  border: none;
+  background-color: $light-gray;
+  padding: 5px;
+}
+
 .dropdown-menu {
   position: absolute;
   right: 0;

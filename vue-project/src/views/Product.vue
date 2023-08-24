@@ -28,7 +28,7 @@
         <p>{{ selectedCategoryName }}</p>
         <span class="material-symbols-outlined closeFilter" @click="closeFilter"> close </span>
       </div>
-      <select name="categories" id="" @change="filterByCategory">
+      <select name="categories" class="filter-by-category" @change="filterByCategory">
         <option value="">All</option>
         <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
       </select>
