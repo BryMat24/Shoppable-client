@@ -48,11 +48,10 @@ export const useUserStore = defineStore('user', {
         })
 
         Swal.fire({
-          title: 'Register Successful',
-          icon: 'success',
+          text: `We have sent a confirmation email to ${value.email}`,
+          icon: 'info'
         })
 
-        this.router.push({ name: 'login' });
       } catch (err) {
         Swal.fire({
           title: 'Error!',
