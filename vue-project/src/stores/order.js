@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { useCartStore } from './cart'
+const baseUrl = 'https://ecommerce.productapic1.com';
 
 export const useOrderStore = defineStore('order', {
     state: () => {
@@ -20,7 +21,7 @@ export const useOrderStore = defineStore('order', {
 
                 // generate unique payment token
                 const { data } = await axios({
-                    url: 'http://localhost:3000/payment-token',
+                    url: `${baseUrl}/payment-token`,
                     method: 'post',
                     headers: {
                         access_token: localStorage.getItem('access_token')
@@ -52,7 +53,7 @@ export const useOrderStore = defineStore('order', {
             try {
                 const cartStore = useCartStore();
                 await axios({
-                    url: `http://localhost:3000/orders/${this.orderId}`,
+                    url: `${baseUrl}/orders/${this.orderId}`,
                     method: 'patch',
                     headers: {
                         access_token: localStorage.getItem('access_token')
@@ -75,7 +76,7 @@ export const useOrderStore = defineStore('order', {
         async getOrderHistory() {
             try {
                 const { data } = await axios({
-                    url: `http://localhost:3000/orders`,
+                    url: `${baseUrl}/orders`,
                     method: 'get',
                     headers: {
                         access_token: localStorage.getItem('access_token')
@@ -94,7 +95,7 @@ export const useOrderStore = defineStore('order', {
         async getOrderDetail(id) {
             try {
                 const { data } = await axios({
-                    url: `http://localhost:3000/orders/${id}`,
+                    url: `${baseUrl}/orders/${id}`,
                     method: 'get',
                     headers: {
                         access_token: localStorage.getItem('access_token')

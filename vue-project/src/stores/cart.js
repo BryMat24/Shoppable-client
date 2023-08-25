@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+const baseUrl = 'https://ecommerce.productapic1.com';
 
 export const useCartStore = defineStore('cart', {
     state: () => {
@@ -39,7 +40,7 @@ export const useCartStore = defineStore('cart', {
             try {
                 const { data } = await axios({
                     method: 'get',
-                    url: "http://localhost:3000/carts",
+                    url: `${baseUrl}/carts`,
                     headers: {
                         access_token: localStorage.getItem('access_token')
                     }
@@ -59,7 +60,7 @@ export const useCartStore = defineStore('cart', {
                 const { id, quantity } = value;
                 await axios({
                     method: 'post',
-                    url: `http://localhost:3000/carts/${id}`,
+                    url: `${baseUrl}/carts/${id}`,
                     headers: {
                         access_token: localStorage.getItem('access_token')
                     },
@@ -84,7 +85,7 @@ export const useCartStore = defineStore('cart', {
             try {
                 await axios({
                     method: 'delete',
-                    url: `http://localhost:3000/carts/${id}`,
+                    url: `${baseUrl}/carts/${id}`,
                     headers: {
                         access_token: localStorage.getItem('access_token')
                     }
@@ -109,7 +110,7 @@ export const useCartStore = defineStore('cart', {
                 const { updateStatus, id } = value;
                 await axios({
                     method: 'patch',
-                    url: `http://localhost:3000/carts/${id}`,
+                    url: `${baseUrl}/carts/${id}`,
                     headers: {
                         access_token: localStorage.getItem('access_token')
                     },
@@ -130,7 +131,7 @@ export const useCartStore = defineStore('cart', {
         async deleteUserCart() {
             try {
                 await axios({
-                    url: `http://localhost:3000/carts`,
+                    url: `${baseUrl}/carts`,
                     method: 'delete',
                     headers: {
                         access_token: localStorage.getItem('access_token')

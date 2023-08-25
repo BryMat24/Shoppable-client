@@ -24,4 +24,4 @@ This is an e-commerce application built using Vue.js, Pinia, Express.js, Sequeli
 
 ## Server Repository
 
-For the backend implementation of this e-commerce application, please visit our [Server Repository](https://github.com/BryMat24/ecommerce-server).
+For the backend implementation of this e-commerce application, please visit my [Server Repository](https://github.com/BryMat24/ecommerce-server).
