@@ -16,7 +16,7 @@ This is an e-commerce application built using Vue.js, Pinia, Express.js, Sequeli
 -   **Enhanced User Location Utilizing Geolocation:** Enhance user convenience by incorporating geolocation, which automatically detects and populates user locations for swift checkout using Google Maps API.
 -   **Streamlined Location Input via Place API:** Employ the power of Place API to offer users a streamlined location input experience, simplifying the address entry process during checkout.
 
-## Test Payments with Stripe
+## Test Payments with Midtrans
 
 To test the payment functionality of our application without using real credit card information, you can use Midtrans test card numbers. These cards are meant for testing purposes and will not result in actual charges. Here are some test card numbers you can use:
 
