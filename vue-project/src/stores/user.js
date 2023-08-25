@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+const baseUrl = 'https://ecommerce.productapic1.com';
 
 export const useUserStore = defineStore('user', {
   state: () => {
@@ -15,7 +16,7 @@ export const useUserStore = defineStore('user', {
       try {
         const { data } = await axios({
           method: 'post',
-          url: 'http://localhost:3000/login',
+          url: `${baseUrl}/login`,
           data: value
         })
 
@@ -41,7 +42,7 @@ export const useUserStore = defineStore('user', {
       try {
         await axios({
           method: 'post',
-          url: 'http://localhost:3000/register',
+          url: `${baseUrl}/register`,
           data: value
         })
 

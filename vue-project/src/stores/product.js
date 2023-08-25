@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+const baseUrl = 'https://ecommerce.productapic1.com';
 
 export const useProductStore = defineStore('product', {
     state: () => {
@@ -22,7 +23,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: "http://localhost:3000/categories"
+                    url: `${baseUrl}/categories`
                 })
 
                 this.categories = data;
@@ -38,7 +39,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: "http://localhost:3000/products",
+                    url: `${baseUrl}/products`,
                     params: {
                         search: this.searchInput,
                         categoryId: this.categoryId,
@@ -60,7 +61,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: `http://localhost:3000/products/${id}`
+                    url: `${baseUrl}/products/${id}`
                 })
 
                 this.productDetail = data;
@@ -76,7 +77,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: `http://localhost:3000/products/similar/${id}`
+                    url: `${baseUrl}/products/similar/${id}`
                 })
 
                 this.similarProducts = data;
@@ -92,7 +93,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: `http://localhost:3000/products/newest-release`
+                    url: `${baseUrl}/products/newest-release`
                 })
 
                 this.newestArrival = data;
@@ -108,7 +109,7 @@ export const useProductStore = defineStore('product', {
             try {
                 const { data } = await axios({
                     method: "get",
-                    url: `http://localhost:3000/products/top-rated`
+                    url: `${baseUrl}/products/top-rated`
                 })
 
                 this.topRated = data;
