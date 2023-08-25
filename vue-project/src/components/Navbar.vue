@@ -48,7 +48,6 @@ import { useUserStore } from '../stores/user'
 import Cart from '../components/Cart.vue'
 import { useCartStore } from '../stores/cart'
 import { useProductStore } from '../stores/product'
-import { getAlanInstance } from '../utils/AlanService'
 
 export default {
   components: {
@@ -66,8 +65,6 @@ export default {
       this.$router.push({ name: 'home' })
       this.isLoggedIn = false
       localStorage.clear()
-      const alanInstance = getAlanInstance()
-      alanInstance.remove()
     },
     performSearch(e) {
       this.searchInput = e.target.value
