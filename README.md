@@ -22,11 +22,6 @@ This is an e-commerce application built using Vue.js, Pinia, Express.js, Sequeli
 -   **Backend:** Express.js, Sequelize (ORM for PostgreSQL)
 -   **Database:** PostgreSQL
 
-## Installation
+## Server Repository
 
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/your-username/ecommerce-app.git
-    cd ecommerce-app
-    ```
+For the backend implementation of this e-commerce application, please visit our [Server Repository](https://github.com/BryMat24/ecommerce-server).
