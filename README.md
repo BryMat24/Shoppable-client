@@ -20,13 +20,12 @@ This is an e-commerce application built using Vue.js, Pinia, Express.js, Sequeli
 
 To test the payment functionality of our application without using real credit card information, you can use Midtrans test card numbers. These cards are meant for testing purposes and will not result in actual charges. Here are some test card numbers you can use:
 
-- **Card Number:** 4811 1111 1111 1114
-- **Expiration Date:** 02/25
-- **CVV:** 123
-- **OTP/3DS:** 112233
+-   **Card Number:** 4811 1111 1111 1114
+-   **Expiration Date:** 02/25
+-   **CVV:** 123
+-   **OTP/3DS:** 112233
 
 Keep in mind that our application is in a testing environment and any payments made using test cards are not real transactions.
-
 
 ## Tech Stack
 
