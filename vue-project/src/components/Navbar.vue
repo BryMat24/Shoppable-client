@@ -1,17 +1,6 @@
 <template>
   <div id="navbar">
     <div class="navbar-left">
-      <label class="hamburger-menu">
-        <input type="checkbox" />
-      </label>
-      <aside class="sidebar">
-        <ul>
-          <li>Products</li>
-          <li>Shopping Cart</li>
-          <li>Wish List</li>
-          <li>Order History</li>
-        </ul>
-      </aside>
       <div class="brand-name" @click="navigate('home')">MyStore</div>
     </div>
     <div class="searchbar">

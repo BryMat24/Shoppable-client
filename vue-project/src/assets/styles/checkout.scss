@@ -7,7 +7,6 @@
   display: flex;
   gap: 40px;
   padding: 50px;
-  flex-wrap: wrap;
 }
 
 .billing-detail-header {
@@ -44,7 +43,9 @@
   gap: 10px;
 }
 
-.checkout-form-container > div {
+.checkout-form-container div:nth-child(1),
+.checkout-form-container div:nth-child(2),
+.checkout-form-container div:nth-child(3) {
   display: flex;
   flex-direction: column;
 }
@@ -60,7 +61,7 @@
 
 .address-group {
   display: flex;
-  flex-direction: row !important;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -108,4 +109,39 @@
 
 .product-quantity {
   font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .checkout {
+    display: grid;
+    grid-template-columns: 1;
+  }
+
+  #map {
+    min-height: 400px !important;
+  }
+}
+
+@media (max-width: 660px) {
+  .checkout {
+    padding: 20px;
+  }
+
+  .address-group {
+    flex-direction: column;
+  }
+
+  #map {
+    min-height: 300px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  #map {
+    min-height: 200px !important;
+  }
+
+  .checkout-order-box {
+    padding: 15px;
+  }
 }

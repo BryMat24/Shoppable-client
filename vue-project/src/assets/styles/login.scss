@@ -130,17 +130,20 @@
     transform: translateY(0);
   }
 }
-
-/* @keyframes left {
-  0% {
-    opacity: 0;
-    width: 0;
+@media (max-width: 660px) {
+  .right {
+    display: none;
   }
 
-  100% {
-    opacity: 1;
-    padding: 20px 40px;
-    width: 440px;
+  .left {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .left form {
+    margin: 0 auto;
+    max-width: 300px;
+    width: 100%;
   }
 }
- */
