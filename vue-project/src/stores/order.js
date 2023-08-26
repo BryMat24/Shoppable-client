@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { useCartStore } from './cart'
-const baseUrl = 'https://ecommerce.productapic1.com';
+const baseUrl = 'http://localhost:3000';
 
 export const useOrderStore = defineStore('order', {
     state: () => {

@@ -29,47 +29,14 @@
     <div class="home-category-wrap">
       <h1 target-scroll>Shop Our Top Categories</h1>
       <div class="shop-category-wrap">
-        <div class="shop-category-single-item" target-scroll>
-          <img
-            src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e570738029a725e686_Furniture-min.png"
-            alt=""
-            class="category-image"
-          />
-        </div>
-        <div class="shop-category-single-item" target-scroll>
-          <img
-            src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e52d6553668075697e_hand%20bag-min.png"
-            alt=""
-            class="category-image"
-          />
-        </div>
-        <div class="shop-category-single-item" target-scroll>
-          <img
-            src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e460afc22b7ea53520_books-min.png"
-            alt=""
-            class="category-image"
-          />
-        </div>
-        <div class="shop-category-single-item" target-scroll>
-          <img
-            src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e754ac2e32897cb53b_tech-min.png"
-            alt=""
-            class="category-image"
-          />
-        </div>
-        <div class="shop-category-single-item" target-scroll>
-          <img
-            src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e64b769118272f244f_sneakers-min.png"
-            alt=""
-            class="category-image"
-          />
-        </div>
-        <div class="shop-category-single-item" target-scroll>
-          <img
-            src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e71eb4ad6d07e7568f_travel-min.png"
-            alt=""
-            class="category-image"
-          />
+        <div
+          class="shop-category-single-item"
+          target-scroll
+          @click="filterByCategory(category.id)"
+          v-for="category in categories"
+        >
+          <img :src="category.imageUrl" alt="" class="category-image" />
+          <div class="shop-category-description">{{ category.name }}</div>
         </div>
       </div>
     </div>
@@ -92,7 +59,7 @@
 <script>
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
-import { mapActions, mapState } from 'pinia'
+import { mapActions, mapState, mapWritableState } from 'pinia'
 import { useProductStore } from '../stores/product'
 import Card from '../components/ProductCard.vue'
 
@@ -103,9 +70,21 @@ export default {
     Card
   },
   methods: {
-    ...mapActions(useProductStore, ['getNewestArrival', 'getTopRated'])
+    ...mapActions(useProductStore, ['getNewestArrival', 'getTopRated', 'getCategories']),
+    filterByCategory(categoryId) {
+      this.page = 1
+      this.categoryId = categoryId
+
+      this.selectedCategoryName = this.categories.find((el) => el.id == this.categoryId)
+        ? this.categories.find((el) => el.id == this.categoryId).name
+        : ''
+
+      this.$router.push({ name: 'product' })
+    }
   },
   computed: {
+    ...mapWritableState(useProductStore, ['selectedCategoryName', 'categoryId', 'page']),
+    ...mapState(useProductStore, ['categories']),
     ...mapState(useProductStore, ['newestArrival', 'topRated'])
   },
   mounted() {
@@ -121,6 +100,7 @@ export default {
     hiddenElement.forEach((el) => observer.observe(el))
   },
   created() {
+    this.getCategories()
     this.getNewestArrival()
     this.getTopRated()
   }
