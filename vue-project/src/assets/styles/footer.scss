@@ -26,3 +26,9 @@
 .footer-info {
   list-style: none;
 }
+
+@media (max-width: 550px) {
+  #footer {
+    margin: 20px;
+  }
+}

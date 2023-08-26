@@ -21,11 +21,6 @@ $x-width: calc($hamburger-height * 1.41421356237);
   z-index: 1;
 }
 
-.navbar-left {
-  display: flex;
-  align-items: center;
-}
-
 .brand-name {
   margin-left: calc($bar-width + 20px);
 }
@@ -103,96 +98,33 @@ $x-width: calc($hamburger-height * 1.41421356237);
 }
 
 @media (max-width: 950px) {
-  .navbar-button .material-symbols-outlined,
-  .rounded-circle {
-    display: none;
-  }
-
   #navbar {
-    gap: 20px;
+    gap: 5px;
+    padding: 10px 20px;
   }
 
-  .hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    gap: $hamburger-gap;
-    z-index: 1;
-    cursor: pointer;
-    position: absolute;
+  .material-symbols-outlined {
+    font-size: 25px !important;
   }
 
-  .hamburger-menu::before,
-  .hamburger-menu::after,
-  .hamburger-menu input {
-    content: '';
-    width: $bar-width;
-    height: $bar-height;
-    background-color: #333;
-    border-radius: 9999px;
-    transform-origin: left center;
-    transition:
-      opacity $animation-timing,
-      width $animation-timing,
-      rotate $animation-timing,
-      translate $animation-timing;
-  }
-
-  .hamburger-menu input {
-    padding: 0;
-    margin: 0;
-    outline: none;
-    appearance: none;
-    pointer-events: none;
-  }
-
-  .hamburger-menu:has(input:checked)::before {
-    rotate: 45deg;
-    width: $x-width;
-    translate: 0 calc($bar-height/ -2);
-  }
-
-  .hamburger-menu:has(input:checked)::after {
-    rotate: -45deg;
-    width: $x-width;
-    translate: 0 calc($bar-height/ 2);
-  }
-
-  .hamburger-menu input:checked {
-    opacity: 0;
-    width: 0;
-  }
-
-  .sidebar {
-    display: block;
-    padding: calc($hamburger-height + 5rem) 50px;
-    transition: translate $animation-timing;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    max-width: 250px;
-    width: 100%;
-    translate: -100%;
-    background-color: white;
-  }
-
-  .hamburger-menu:has(input:checked) + .sidebar {
-    translate: 0;
+  .brand-name {
+    display: none;
   }
 }
 
 @media (max-width: 550px) {
   .searchbar {
     background-color: white;
-    max-width: 200px;
+    max-width: 280px;
     width: 100%;
-    padding: 10px 10px;
+    padding: 5px 5px;
     border-radius: 35px;
     display: flex;
     gap: 5px;
   }
 
   .searchbar input {
-    max-width: 85px;
+    max-width: 300px;
+    font-size: 1rem;
   }
 }

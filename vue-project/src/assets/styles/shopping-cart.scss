@@ -73,7 +73,7 @@
 .item-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .item-detail {
@@ -156,4 +156,14 @@
   padding: 5px;
   text-align: center;
   font-size: 15px;
+}
+
+@media (max-width: 550px) {
+  .cart-items {
+    padding: 5px;
+  }
+
+  .item-detail {
+    font-size: 0.8rem;
+  }
 }
