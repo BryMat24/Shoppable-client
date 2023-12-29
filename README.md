@@ -34,8 +34,7 @@ Keep in mind that our application is in a testing environment and any payments m
 -   **Database:** PostgreSQL
 
 ## Server Repository
-
-For the backend implementation of this e-commerce application, please visit my [Server Repository](https://github.com/BryMat24/ecommerce-server).
+For the API doc, please visit my [Server Repository](https://github.com/BryMat24/ecommerce-server).
 
 ## Deployed Frontend
 
