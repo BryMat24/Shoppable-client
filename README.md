@@ -38,4 +38,4 @@ For the API doc, please visit my [Server Repository](https://github.com/BryMat24
 
 ## Deployed Frontend
 
-Access the live version of the frontend [here](https://ecommerce-de057.web.app).
+Access the live version of the frontend [here](https://shoppable-ec.web.app/).
